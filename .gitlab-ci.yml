@@ -1,0 +1,24 @@
+stages:
+  - test
+  - deploy
+
+variables:
+  AWS_ACCESS_KEY_ID: test
+  AWS_SECRET_ACCESS_KEY: test
+  AWS_DEFAULT_REGION: us-east-1
+  SERVICES: s3
+
+before_script:
+  - pip install awscli
+  - pip install boto3
+
+test_job:
+  stage: test
+  script:
+    - echo "Running tests..."
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying to LocalStack..."
+    - aws --endpoint-url=http://localstack:4566 s3 mb s3://mybucket
