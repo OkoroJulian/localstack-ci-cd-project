@@ -4,28 +4,30 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      # 1️⃣ Checkout the code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      # 2️⃣ Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          python-version: '3.11'
+          node-version: '18'  # You can change this to your project's version
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: npm install
 
+      # 4️⃣ Run tests (optional, you can remove this if no tests)
       - name: Run tests
-        run: pytest
+        run: npm test
 
-      - name: Deploy to LocalStack
-        run: |
-          terraform init
-          terraform apply -auto-approve
+      # 5️⃣ Build project (optional)
+      - name: Build project
+        run: npm run build
