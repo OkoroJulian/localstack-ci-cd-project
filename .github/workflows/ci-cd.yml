@@ -41,8 +41,8 @@ jobs:
           sleep 5
 
       - name: Deploy to Heroku
-        uses: w9jds/heroku-deploy@v3.12.12
+        uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_app_name: flask-launchpad
           heroku_email: julianonyinye2025@gmail.com
