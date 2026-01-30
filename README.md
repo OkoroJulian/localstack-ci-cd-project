@@ -1,5 +1,6 @@
 Automated AWS CI/CD Pipeline with LocalStack
 Project Overview
+
 This project demonstrates a robust, cost-effective DevOps workflow for cloud-native applications. It uses LocalStack to emulate a full AWS environment, allowing for rigorous testing of underlying infrastructure without incurring live cloud costs or risking production stability.
 
 Why this is relevant for DeFi & Trading Terminals
@@ -222,4 +223,5 @@ Terraform provisions an S3 bucket inside LocalStack.
 
 
 Flask app or CLI uploads files to the S3 bucket — all locally, no AWS charges.
+
 
